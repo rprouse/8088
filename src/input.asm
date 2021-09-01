@@ -1,4 +1,8 @@
+%include 'library.inc'
+
 ; Read from the keyboard and echo to the screen
+    cpu 8086
+    bits 16
     org 0x0100
 start:
     mov ah,0x00         ; keyboard read
@@ -12,5 +16,4 @@ start:
     int 0x10            ; Call the BIOS for displaying one letter
     jmp start
 
-exit:
-    int 0x20
+    jmp exit

@@ -3,7 +3,7 @@ RM_FLAGS=-rf
 MKDIR_BINARY=mkdir
 MKDIR_FLAGS=-p
 NASM_BINARY=nasm
-NASM_FLAGS=-f bin
+NASM_FLAGS=-f bin -i lib
 
 BUILD_FOLDER=bin
 
