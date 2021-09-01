@@ -1,0 +1,16 @@
+# Autodetect text files
+* text=auto
+
+# ...Unless the name matches the following
+# overriding patterns
+
+# Definitively text files
+*.md text
+*.txt text
+*.asm text
+*.inc text
+
+# Ensure those won't be messed up with
+*.jpg binary
+*.png binary
+*.bin binary

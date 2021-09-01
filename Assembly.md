@@ -1,0 +1,74 @@
+# 8080/8088 Assembly Notes
+
+## Instructions
+
+### Load, Store, Compare
+
+- `mov dest,src` - Move a value to,from register or memory, `mov eax,10`
+
+### Branching
+
+- `cmp b,a` - Compare two values
+- `je label` - Jump if equal
+- `jne label` - Jump if not equal
+- `jg label` - Jump if b > a
+- `jge label` - Jump if b >= a
+- `jl label` - Jump if b < a
+- `jle label` - Jump if b <= a
+- `test reg,imm` - Bitwise compare of register and constant
+- `jz label` - Jump if bits were not set ("zero")
+- `jnz label` - Jump if bits were set ("not zero")
+
+### Increment and Decrement
+
+- `inc dest` - Increments a register/memory, `inc eax`
+- `dec dest` - Decrements a register/memory, `dec word [0x1000]`
+
+### Arithmetic
+
+- `add dest,src` - dest = dest + src
+- `sub dest,src` - dest = dest - src
+- `mul reg` - edx:eax = eax * reg
+- `div reg` - edx = edx:eax % reg, eax = edx:eax / reg
+
+### Logical Operators
+
+- `and dest,src` - dest = src & dest, `and ebx,eax`
+- `or dest,src` - dest = src | dest, `or eax,[0x2000]`
+- `xor dest,src` - dest = src ^ dest, `xor ebx,0xffffffff`
+- `shl dest,count` - dest = dest << count, `shl eax,2`
+- `shr dest,count` - dest = dest >> count, `shr dword[eax],4`
+
+### Transfer
+
+
+### Set and Clear Status Bits
+
+### Stack
+
+- `push src` - Pushes register/value to the stack
+- `pop dest` - Pops a register/value from the stack
+
+### Misc
+
+- `jmp label` - Relative jump to location
+- `jmp reg` - Absolute jump to location in register
+- `call func` - Call a subroutine
+- `ret` - Return from subroutine
+- `nop` - No-op, opcode 0x90
+- `hlt` - Halt the CPU
+
+### Interupts
+
+- `int` - Call a BIOS subroutine
+- 
+## Addressing Modes
+
+## Status Flags
+
+## Registers
+
+## BIOS Routines
+
+- `0x10` - Output a character in `AL` to the screen
+- `0x16` - Get a character from the keyboard

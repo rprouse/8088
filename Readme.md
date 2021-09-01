@@ -1,5 +1,12 @@
 # 8080/8088 Assembly
 
+## Set this repo to LF line endings
+
+```sh
+git config core.eol lf
+git config core.autocrlf input
+```
+
 ## Run the Docker container with NASM
 
 If you open this folder in VS Code with the Remote Extensions installed, it will automatically prompt you to reopen in a container. If not, you can run the docker container manually.
