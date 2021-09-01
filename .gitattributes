@@ -9,6 +9,7 @@
 *.txt text
 *.asm text
 *.inc text
+makefile text
 
 # Ensure those won't be messed up with
 *.jpg binary
