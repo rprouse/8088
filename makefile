@@ -18,7 +18,7 @@ $(BUILD_FOLDER):
 
 # Compiles all ASM files in a given directory
 $(INPUTS) : $(BUILD_FOLDER)
-	$(NASM_BINARY) $(NASM_FLAGS) -o $(patsubst $(DIR)/%.asm,$(BUILD_FOLDER)/%.com,$(@)) -l $(patsubst $(DIR)/%.asm,$(BUILD_FOLDER)/%.list,$(@)) $@
+	$(NASM_BINARY) $(NASM_FLAGS) -o $(patsubst $(DIR)/%.asm,$(BUILD_FOLDER)/%.com,$(@)) -l $(patsubst $(DIR)/%.asm,$(BUILD_FOLDER)/%.lst,$(@)) $@
 
 default: clean all
 

@@ -1,8 +1,10 @@
-%include 'library.inc'
-
     cpu 8086
     bits 16
     org 0x0100
+    jmp start
+
+%include 'library.inc'
+
 start:
     mov bx,.string       ; Load register BX with address of 'string'
 .loop:
@@ -10,7 +12,7 @@ start:
     test al,al          ; Test AL for zero
     je exit             ; Jump if equal (jump if zero)
 
-    call chout
+    call char_out
 
     inc bx              ; Increment BX
     jmp .loop
