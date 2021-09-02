@@ -1,5 +1,7 @@
 # 8080/8088 Assembly
 
+See my [8088 Assembly Notes](Assembly.md)
+
 ## Set this repo to LF line endings
 
 ```sh

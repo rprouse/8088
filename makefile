@@ -16,7 +16,7 @@ INPUTS = $(wildcard $(DIR)/*.asm)
 $(BUILD_FOLDER):
 	$(MKDIR_BINARY) $(MKDIR_FLAGS) $(@)
 
-# Compiles all ASM files in a given
+# Compiles all ASM files in a given directory
 $(INPUTS) : $(BUILD_FOLDER)
 	$(NASM_BINARY) $(NASM_FLAGS) -o $(patsubst $(DIR)/%.asm,$(BUILD_FOLDER)/%.com,$(@)) -l $(patsubst $(DIR)/%.asm,$(BUILD_FOLDER)/%.list,$(@)) $@
 

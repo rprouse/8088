@@ -15,7 +15,7 @@
 - `jge label` - Jump if b >= a
 - `jl label` - Jump if b < a
 - `jle label` - Jump if b <= a
-- `test reg,imm` - Bitwise compare of register and constant
+- `test reg,imm` - Bitwise compare of register and constant or zero (same as AND but without modifying the register)
 - `jz label` - Jump if bits were not set ("zero")
 - `jnz label` - Jump if bits were set ("not zero")
 
@@ -60,12 +60,24 @@
 ### Interupts
 
 - `int` - Call a BIOS subroutine
-- 
+-
 ## Addressing Modes
 
 ## Status Flags
 
 ## Registers
+
+| Register | High | Low | Common Use |
+| -------- | ---- | --- | ---------- |
+| AX       | AH   | AL  | Accumulator |
+| BX       | BH   | BL  | Address |
+| CX       | CH   | CL  | Counter |
+| DX       | DH   | DL  | 32-bit extension of AX |
+| SI       |      |     | Source Address |
+| DI       |      |     | Destination Address |
+| BP       |      |     | Base pointer along with SP |
+| SP       |      |     | Stack Pointer |
+| Flags    |      |     | State of last instruction affecting flags |
 
 ## BIOS Routines
 

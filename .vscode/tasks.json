@@ -10,15 +10,7 @@
         "isDefault": true
       },
       "type": "shell",
-      "command": "make -C Src clean all"
-    },
-    {
-      "label": "nasm: Compile and Link Current File",
-      "group": {
-        "kind": "build"
-      },
-      "type": "shell",
-      "command": "nasm -f bin -o ${fileDirname}${pathSeparator}${fileBasenameNoExtension}.com -l ${fileDirname}${pathSeparator}${fileBasenameNoExtension}.lst ${file}"
+      "command": "make -C ${workspaceFolder}/src clean all"
     }
   ]
 }
