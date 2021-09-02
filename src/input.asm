@@ -7,12 +7,12 @@
 %include 'library.inc'
 
 start:
-    call char_in
+    call chin
 
     cmp al,0x1b         ; ESC key pressed?
     je exit
 
-    call char_out
+    call chout
     jmp start
 
     jmp exit

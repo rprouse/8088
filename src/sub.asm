@@ -7,7 +7,7 @@
 
 start:
     mov al,0x04
-    add al,0x03   ; Add 0x03 to AL
+    sub al,0x03  ; Subtract 0x03 from AL
 
     add al,0x30   ; Convert to ASCII digit
     call chout

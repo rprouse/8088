@@ -2,7 +2,7 @@ exit:
     int 0x20            ; Exit to the command line
 
 ; Display a letter contained in AL
-char_out:
+chout:
     push ax
     push bx
     push cx
@@ -21,7 +21,7 @@ char_out:
     ret
 
 ; Read keyboard into AL
-char_in:
+chin:
     push bx
     push cx
     push dx

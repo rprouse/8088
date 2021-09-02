@@ -12,7 +12,7 @@ start:
     test al,al          ; Test AL for zero
     je exit             ; Jump if equal (jump if zero)
 
-    call char_out
+    call chout
 
     inc bx              ; Increment BX
     jmp .loop

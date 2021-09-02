@@ -28,8 +28,10 @@
 
 - `add dest,src` - dest = dest + src
 - `sub dest,src` - dest = dest - src
-- `mul reg` - edx:eax = eax * reg
-- `div reg` - edx = edx:eax % reg, eax = edx:eax / reg
+- `mul reg` - unsigned multiplication, edx:eax = eax * reg
+- `imul reg` - signed multiplication, edx:eax = eax * reg
+- `div reg` - unsigned division, edx = edx:eax % reg, eax = edx:eax / reg
+- `idiv reg` - unsigned division, edx = edx:eax % reg, eax = edx:eax / reg
 
 ### Logical Operators
 

@@ -6,8 +6,9 @@
 %include 'library.inc'
 
 start:
-    mov al,0x04
-    add al,0x03   ; Add 0x03 to AL
+    mov al,0x03
+    mov cl,0x02
+    mul cl        ; Multiply AL by 0x02
 
     add al,0x30   ; Convert to ASCII digit
     call chout
