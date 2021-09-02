@@ -38,8 +38,14 @@
 - `and dest,src` - dest = src & dest, `and ebx,eax`
 - `or dest,src` - dest = src | dest, `or eax,[0x2000]`
 - `xor dest,src` - dest = src ^ dest, `xor ebx,0xffffffff`
-- `shl dest,count` - dest = dest << count, `shl eax,2`
-- `shr dest,count` - dest = dest >> count, `shr dword[eax],4`
+- `shl dest,count` - dest = dest << count, `shl al,1`. Carry flag set to high bit. Low bit becomes 0.
+- `sal dest,count` - synonym for `shl`
+- `shr dest,count` - dest = dest >> count, `shr dword[eax],4`. Carry flag set to low bit. High bit becomes 0.
+- `sar dest,count` - Same as `shr` except the high bit remains the same. It is a signed shift right.
+- `ror dest,count` - Rotate bits right directly
+- `rcr dest,count` - Rotate bits right through carry bit
+- `rol dest,count` - Rotate bits left directly
+- `rcl dest,count` - Rotate bits left through carry bit
 
 ### Transfer
 
