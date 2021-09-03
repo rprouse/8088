@@ -10,7 +10,7 @@
         "isDefault": true
       },
       "type": "shell",
-      "command": "make -C ${workspaceFolder}/src clean all"
+      "command": "make -C ${workspaceFolder} clean all"
     }
   ]
 }
