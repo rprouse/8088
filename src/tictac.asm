@@ -65,25 +65,25 @@ start:
 
 .show_row:
     call .show_square
-    mov al,'|'
+    mov al,0xb3     ; Graphic |
     call chout
     call .show_square
-    mov al,'|'
+    mov al,0xb3     ; Graphic |
     call chout
     call .show_square
     call .show_crlf
     ret
 
 .show_div:
-    mov al,'-'
+    mov al,0xc4     ; Graphic -
     call chout
-    mov al,'+'
+    mov al,0xc5     ; Graphic +
     call chout
-    mov al,'-'
+    mov al,0xc4     ; Graphic -
     call chout
-    mov al,'+'
+    mov al,0xc5     ; Graphic +
     call chout
-    mov al,'-'
+    mov al,0xc4     ; Graphic -
     call chout
     call .show_crlf
     ret
