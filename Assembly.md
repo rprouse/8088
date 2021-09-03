@@ -15,9 +15,11 @@
 - `jge label` - Jump if b >= a
 - `jl label` - Jump if b < a
 - `jle label` - Jump if b <= a
+- `jnc label` - Jump if carry is not set
 - `test reg,imm` - Bitwise compare of register and constant or zero (same as AND but without modifying the register)
 - `jz label` - Jump if bits were not set ("zero")
 - `jnz label` - Jump if bits were set ("not zero")
+- `loop label` - Decrease CX and jump if non-zero
 
 ### Increment and Decrement
 

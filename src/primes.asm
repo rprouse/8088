@@ -37,10 +37,10 @@ start:
 
     mov bx,table
     add bx,ax
-.mark_multiples
+.mark_multiples:
     add bx,ax           ; Next multiple of AX
     cmp bx,table+table_size
-    jnc .next           ; Make sure we're not at the end of the table
+    jg .next            ; Make sure we're not at the end of the table
     mov byte [bx],1     ; Set the value as not-prime in the table
     jmp .mark_multiples ; Back and multiply again
 
