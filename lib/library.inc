@@ -35,3 +35,19 @@ chin:
     pop cx
     pop bx
     ret
+
+; Display the value of AX as a decimal number
+display_number:
+    mov dx,0
+    mov cx,10
+    div cx              ; AX = DX:AX / CX
+    push dx
+    cmp ax,0
+    je .display_digit
+    call display_number ; Recursively call to pull off the next digit
+
+.display_digit:
+    pop ax
+    add al,'0'          ; Convert the remainder to ASCII digit
+    call chout
+    ret
