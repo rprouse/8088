@@ -23,11 +23,13 @@ start:
 
 .game_loop:
     call .show_board
+    call .find_line
     call .get_move
     mov byte [bx],'X'
     call .show_board
+    call .find_line
     call .get_move
-    mov byte [bx],'06'
+    mov byte [bx],'O'
     jmp .game_loop
 
 .get_move:
@@ -98,3 +100,88 @@ start:
     mov al,0x0a
     call chout
     ret
+
+.find_line:
+    ; First horizontal row
+    mov al,[board]    ; X.. ... ...
+    cmp al,[board+1]  ; .X. ... ...
+    jne .find_second_line
+    cmp al,[board+2]  ; ..X ... ...
+    je .win
+
+.find_second_line:
+    ; Second horizontal row
+    mov al,[board+3]  ; ... X.. ...
+    cmp al,[board+4]  ; ... .X. ...
+    jne .find_third_line
+    cmp al,[board+5]  ; ... ..X ...
+    je .win
+
+.find_third_line:
+    ; Third horizontal row
+    mov al,[board+6]  ; ... ... X..
+    cmp al,[board+7]  ; ... ... .X.
+    jne .find_first_column
+    cmp al,[board+8]  ; ... ... ..X
+    je .win
+
+.find_first_column:
+    ; First vertical column
+    mov al,[board]    ; X.. ... ...
+    cmp al,[board+3]  ; ... X.. ...
+    jne .find_second_column
+    cmp al,[board+6]  ; ... ... X..
+    je .win
+
+.find_second_column:
+    ; Second vertical column
+    mov al,[board+1]  ; .X. ... ...
+    cmp al,[board+4]  ; ... .X. ...
+    jne .find_third_column
+    cmp al,[board+7]  ; ... ... .X.
+    je .win
+
+.find_third_column:
+    ; Third vertical column
+    mov al,[board+2]  ; ..X ... ...
+    cmp al,[board+5]  ; ... ..X ...
+    jne .find_first_diagonal
+    cmp al,[board+8]  ; ... ... ..X
+    je .win
+
+.find_first_diagonal:
+    ; First diagonal
+    mov al,[board]    ; X.. ... ...
+    cmp al,[board+4]  ; ... .X. ...
+    jne .find_second_diagonal
+    cmp al,[board+8]  ; ... ... ..X
+    je .win
+
+.find_second_diagonal:
+    ; Second diagonal
+    mov al,[board+2]  ; ..X ... ...
+    cmp al,[board+4]  ; ... .X. ...
+    jne .finish
+    cmp al,[board+6]  ; ... ... X..
+    je .win
+
+.finish:
+    ret
+
+.win:
+    ; AL contains the letter that won the game
+    call chout
+    mov al,' '
+    call chout
+    mov al,'W'
+    call chout
+    mov al,'i'
+    call chout
+    mov al,'n'
+    call chout
+    mov al,'s'
+    call chout
+    mov al,'!'
+    call chout
+    call .show_crlf
+    jmp exit
