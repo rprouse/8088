@@ -71,6 +71,7 @@
 - `ret` - Return from subroutine
 - `nop` - No-op, opcode 0x90
 - `hlt` - Halt the CPU
+- `cbw` - Change byte to Word, expands AL to 16 bits using AH
 
 ### Interupts
 
