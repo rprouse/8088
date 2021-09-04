@@ -161,9 +161,38 @@ start:
     ; Second diagonal
     mov al,[board+2]  ; ..X ... ...
     cmp al,[board+4]  ; ... .X. ...
-    jne .finish
+    jne .check_tie
     cmp al,[board+6]  ; ... ... X..
     je .win
+
+.check_tie:
+    mov bx,board
+    mov cx,9
+.check_tie_loop:
+    cmp byte [bx],0x40     ; Does the square contain an ASCII letter or digit
+    jl .finish        ; If we find a number, there are open squares
+    inc bx
+    loop .check_tie_loop
+
+    ; Tie
+    mov al,'T'
+    call chout
+    mov al,'i'
+    call chout
+    mov al,'e'
+    call chout
+    mov al,' '
+    call chout
+    mov al,'g'
+    call chout
+    mov al,'a'
+    call chout
+    mov al,'m'
+    call chout
+    mov al,'e'
+    call chout
+    call .show_crlf
+    jmp exit
 
 .finish:
     ret
